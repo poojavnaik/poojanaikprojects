@@ -18,6 +18,7 @@ public class AmazonConfig {
 		AWSCredentials awsCredentials = new BasicAWSCredentials("AKIAZOSBJU6PFPIZT4QP", "EOixAcM/w00/v3GUejsWw1VT/ps1WPCe+pBesh0A");
 		return AmazonS3ClientBuilder
 				.standard()
+				.withRegion("us-east-1")///code fix for AWS File error
 				.withCredentials(new AWSStaticCredentialsProvider(awsCredentials))
 				.build();
 		

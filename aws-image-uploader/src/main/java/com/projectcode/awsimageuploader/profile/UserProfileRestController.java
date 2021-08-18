@@ -21,6 +21,6 @@ public class UserProfileRestController {
 
 	@GetMapping
 	public List<UserProfile> getUserProfiles(){
-		return null;
+		return userprofileservice.getUserProfiles();
 	}
 }
