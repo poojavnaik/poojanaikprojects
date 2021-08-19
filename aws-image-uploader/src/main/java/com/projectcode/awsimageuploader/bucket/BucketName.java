@@ -12,9 +12,4 @@ public enum BucketName {
 	public String getBucketName() {
 		return bucketName;
 	}
-
-	 
-	
-	 
-	
 }
