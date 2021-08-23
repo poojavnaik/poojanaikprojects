@@ -1,6 +1,7 @@
 package com.projectcode.awsimageuploader.profile;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -13,6 +14,7 @@ import java.awt.PageAttributes.MediaType;
 import java.util.*;
 
 @RestController
+@CrossOrigin("*")// to remove CORS error - not a good practice to do in prod environment
 @RequestMapping("api/u1/user-profile")
 public class UserProfileRestController {
 	
