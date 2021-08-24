@@ -9,7 +9,7 @@ const UserProfiles = () => {
    
 const fetchuserProfiles = () => {
   axios.get("http://localhost:8080/api/u1/user-profile").then(res => {
-    console.log(res);
+    console.log("defsef");
     setUserProfiles(res.data);
   });
 };
@@ -23,8 +23,8 @@ return userProfiles.map((userprofile, i) => {
     <div key = {i}>
       <br/>
       <h1>{userprofile.username}</h1>
-      <p>{userprofile.uprofileId}</p>
-      <Dropzone/>
+      <p>{userprofile.userProfileId}</p>
+      <Dropzone userProfileId={userprofile.userProfileId}/>
       <br/>
     </div>
   );
@@ -32,9 +32,24 @@ return userProfiles.map((userprofile, i) => {
 };
 
 //DropZone to upload files
-function Dropzone() {
+function Dropzone({userProfileId}) {
   const onDrop = useCallback(acceptedFiles => {
-    console.log(acceptedFiles);
+    const file = acceptedFiles[0];
+    const formdata = new FormData();
+    formdata.append("file", file);
+    console.log({userProfileId});
+    axios.post(`http://localhost:8080/api/u1/user-profile/${userProfileId}/image/download`, 
+    formdata,
+    {
+    headers: {
+      "Content-Type": "multipart/form-data"
+    }
+  }
+    ).then(() =>{
+      console.log("File is uploaded")
+    }).catch(error =>{
+      console.log("Error: File not uploaded - ",error);
+    })
   }, [])
   const {getRootProps, getInputProps, isDragActive} = useDropzone({onDrop})
 
