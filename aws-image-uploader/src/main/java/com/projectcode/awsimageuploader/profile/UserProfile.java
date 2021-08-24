@@ -4,20 +4,20 @@ import java.util.*;
 
 public class UserProfile{
 	
-	private UUID uprofileId;
+	private UUID userProfileId;
 	private String username;
 	private String uprofilelink;
-	public UserProfile(UUID uprofileId, String username, String uprofilelink) {
-		super();
-		this.uprofileId = uprofileId;
+	public UserProfile(UUID userProfileId, String username, String uprofilelink) {
+		
+		this.userProfileId = userProfileId;
 		this.username = username;
 		this.uprofilelink = uprofilelink;
 	}
-	public UUID getUprofileId() {
-		return uprofileId;
+	public UUID getUserProfileId() {
+		return userProfileId;
 	}
-	public void setUprofileId(UUID uprofileId) {
-		this.uprofileId = uprofileId;
+	public void setUserProfileId(UUID userProfileId) {
+		this.userProfileId = userProfileId;
 	}
 	public String getUsername() {
 		return username;
@@ -33,7 +33,7 @@ public class UserProfile{
 	}
 	@Override
 	public int hashCode() {
-		return Objects.hash(uprofileId, uprofilelink, username);
+		return Objects.hash(userProfileId, uprofilelink, username);
 	}
 	@Override
 	public boolean equals(Object obj) {
@@ -44,7 +44,7 @@ public class UserProfile{
 		if (getClass() != obj.getClass())
 			return false;
 		UserProfile other = (UserProfile) obj;
-		return Objects.equals(uprofileId, other.uprofileId) && Objects.equals(uprofilelink, other.uprofilelink)
+		return Objects.equals(userProfileId, other.userProfileId) && Objects.equals(uprofilelink, other.uprofilelink)
 				&& Objects.equals(username, other.username);
 	}
 	

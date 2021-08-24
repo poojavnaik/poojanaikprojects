@@ -18,8 +18,4 @@ public class InMemoryDataStore {
 	public static ArrayList<UserProfile> getUserprofiles() {
 		return userprofiles;
 	}
-	
-	
-	
-	
 }

@@ -39,7 +39,11 @@ public class UserProfileRestController {
 			)
 	public void uploaduserProfileImage(@PathVariable("userProfileId") UUID userProfileId,
 			@RequestParam("file") MultipartFile file) {
-		userprofileservice.uploaduserProfileImage(userProfileId, file);
+		try {
+			userprofileservice.uploaduserProfileImage(userProfileId, file);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		
 	}
 }

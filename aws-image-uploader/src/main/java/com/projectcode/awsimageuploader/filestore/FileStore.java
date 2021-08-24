@@ -1,6 +1,7 @@
 package com.projectcode.awsimageuploader.filestore;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import com.amazonaws.AmazonServiceException;
 import com.amazonaws.services.s3.AmazonS3;
@@ -10,6 +11,7 @@ import java.io.InputStream;
 import java.util.Map;
 import java.util.Optional;
 
+@Component
 public class FileStore {
 	
 	private final AmazonS3 s3;
@@ -29,12 +31,10 @@ public class FileStore {
 			}
 		});
 		try {
-			
 			s3.putObject(path, fileName, input, metadata);
 		}
 		catch(AmazonServiceException e) {
 			throw new IllegalStateException("Failed to store file to S3", e);
 		}
 	}
-
 }
